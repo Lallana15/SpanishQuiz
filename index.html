@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lateral Thinking Riddle Quiz</title>
+<style>
+  body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f5f5f5;
+    color: #222;
+    padding: 30px;
+    line-height: 1.6;
+  }
+  h1 {
+    text-align: center;
+    color: #2b6cb0;
+  }
+  .riddle {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .question {
+    font-weight: bold;
+  }
+  .answer {
+    display: none;
+    margin-top: 10px;
+    color: #155724;
+    background-color: #d4edda;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  button {
+    background-color: #2b6cb0;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  button:hover {
+    background-color: #1a4f85;
+  }
+</style>
+</head>
+<body>
+
+<h1>💡 Lateral Thinking Riddle Quiz</h1>
+
+<div id="riddles"></div>
+
+<script>
+const riddles = [
+  {
+    question: "1️⃣ A man pushes his car to a hotel and loses his fortune. How is this possible?",
+    answer: "He’s playing Monopoly — he landed on a hotel and went bankrupt."
+  },
+  {
+    question: "2️⃣ A man is found dead in a locked cabin with a puddle of water around him. How did he die?",
+    answer: "He stood on a block of ice to hang himself; the ice melted."
+  },
+  {
+    question: "3️⃣ A man walks into a bar and asks for water. The bartender points a gun at him. The man says 'Thank you' and leaves. Why?",
+    answer: "The man had hiccups. The scare cured him."
+  },
+  {
+    question: "4️⃣ A short man lives on the tenth floor. He rides the elevator to the seventh and walks up the rest — except when it rains. Why?",
+    answer: "He’s too short to reach the 10th-floor button but uses his umbrella when it rains."
+  },
+  {
+    question: "5️⃣ A man leaves home, makes three left turns, and returns to find two masked men. What happened?",
+    answer: "He hit a home run in baseball. The masked men are the catcher and umpire."
+  },
+  {
+    question: "6️⃣ A woman shoots a man and holds him under water, but both walk away unharmed. How?",
+    answer: "She took his picture and developed it in liquid."
+  },
+  {
+    question: "7️⃣ A man is found dead in a field with a backpack, but no footprints. Why?",
+    answer: "He fell from a plane; the backpack was a parachute that didn’t open."
+  },
+  {
+    question: "8️⃣ A man builds a house with all sides facing south. A bear walks by. What color is it?",
+    answer: "White — the house is at the North Pole, so it’s a polar bear."
+  },
+  {
+    question: "9️⃣ A woman puts a candle in a locked ice room. When she returns, it’s gone and the room is destroyed. Why?",
+    answer: "The candle melted the ice walls; the room collapsed."
+  },
+  {
+    question: "🔟 A museum guard is dead outside a sealed gallery. The killer left no trace. How?",
+    answer: "The killer hid inside a crate before the room was sealed and escaped in another crate."
+  }
+];
+
+const container = document.getElementById('riddles');
+
+riddles.forEach((riddle, index) => {
+  const div = document.createElement('div');
+  div.className = 'riddle';
+  div.innerHTML = `
+    <div class="question">${riddle.question}</div>
+    <button onclick="toggleAnswer(${index})">Show Answer</button>
+    <div id="answer-${index}" class="answer">${riddle.answer}</div>
+  `;
+  container.appendChild(div);
+});
+
+function toggleAnswer(index) {
+  const ans = document.getElementById(`answer-${index}`);
+  const btn = ans.previousElementSibling;
+  if (ans.style.display === 'none' || ans.style.display === '') {
+    ans.style.display = 'block';
+    btn.textContent = 'Hide Answer';
+  } else {
+    ans.style.display = 'none';
+    btn.textContent = 'Show Answer';
+  }
+}
+</script>
+
+</body>
+</html>
